@@ -6,24 +6,25 @@ const Products = () => {
   const [products] = Useproducts([]);
   return (
     <div>
-      <h3>products:{products.length}</h3>
-      {products.map((product) => (
-        <div key={product.id} className="row">
-          <div className="col-lg-4">
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={product.img} />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
+      <h2 className="text-success text-center my-5">Our Goods</h2>
+      <div className="row">
+        {products.slice(0, 6).map((product) => (
+          <div key={product.id} className="col-lg-4">
+            <div>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={product.img} />
+                <Card.Body className="text-center">
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>Price:{product.price}</Card.Text>
+                  <Card.Text>Description:{product.description}</Card.Text>
+                  <Card.Text>Supplier: {product.supplier}</Card.Text>
+                  <Button variant="primary">Update</Button>
+                </Card.Body>
+              </Card>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
