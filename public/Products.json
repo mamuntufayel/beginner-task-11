@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "latest invention",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/qCfkhPj/jeremy-budiman-SJQ2zukqpz-I-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 2,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/CQ2s4sM/jaelynn-castillo-xf-Ne-B1st-Z-0-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 3,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/mTBQwkk/fabian-heimann-4-R-WEmhx8og-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 4,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/qCfkhPj/jeremy-budiman-SJQ2zukqpz-I-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 5,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/5x5sP7n/paul-cuoco-CO2v-Oh-Pqlr-M-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 6,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/870THLJ/john-torcasio-TJrkkhd-B39-E-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    },
+    {
+        "id": 7,
+        "name": "3 month BODYBUILDER",
+        "price": "$300",
+        "description": "Latest collections",
+        "img": "https://i.ibb.co/870THLJ/john-torcasio-TJrkkhd-B39-E-unsplash.jpg",
+        "quantity":"20",
+        "supplier":"Jason and co"
+
+    }
+]
