@@ -1,13 +1,32 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../../images/social/google.png";
-
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../Firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+  const handleToSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    console.log(email, password);
+    signInWithEmailAndPassword(email, password);
+    event.target.reset("");
+  };
+
+  if (user || googleUser) {
+    navigate("/home");
+  }
   return (
     <div>
       <h2 className="text-success text-center">Login</h2>
-      <Form className="w-50 mx-auto">
+      <Form onSubmit={handleToSubmit} className="w-50 mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -41,7 +60,10 @@ const Login = () => {
           </span>
         </p>
         <div>
-          <button className="btn btn-primary d-block mx-auto w-50">
+          <button
+            onClick={() => signInWithGoogle()}
+            className="btn btn-primary d-block mx-auto w-50"
+          >
             <span>
               {" "}
               <img src={google} alt="" />{" "}
