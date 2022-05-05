@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Useproducts from "../../../Hook/Useproducts";
 
 const AllItems = () => {
   const [products] = Useproducts([]);
+  const navigate = useNavigate();
   return (
     <div className="container">
       <h2 className="text-success text-center my-5">Inventory</h2>
@@ -18,7 +20,13 @@ const AllItems = () => {
                   <Card.Text>Price:{product.price}</Card.Text>
                   <Card.Text>Description:{product.description}</Card.Text>
                   <Card.Text>Supplier: {product.supplier}</Card.Text>
-                  <Button variant="primary">Update</Button>
+                  <Card.Text>Quantity: {product.quantity}</Card.Text>
+                  <Button
+                    onClick={() => navigate("/inventory/:id")}
+                    variant="primary"
+                  >
+                    Update
+                  </Button>
                 </Card.Body>
               </Card>
             </div>
