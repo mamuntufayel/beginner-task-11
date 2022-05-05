@@ -5,12 +5,14 @@ import google from "../../../images/social/google.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
 const Register = () => {
   const [createUserWithEmailAndPassword, user] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [error, setError] = useState("");
   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
+
   const handleToSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;

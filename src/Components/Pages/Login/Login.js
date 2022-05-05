@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import google from "../../../images/social/google.png";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase.init";
@@ -10,6 +10,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const handleToSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -20,8 +22,12 @@ const Login = () => {
     event.target.reset("");
   };
 
+  if (error) {
+    return <p className="text-danger">Error: {error.message}</p>;
+  }
+
   if (user || googleUser) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
   return (
     <div>
@@ -46,7 +52,7 @@ const Login = () => {
             required
           />
         </Form.Group>
-
+        <h5>{error}</h5>
         <Button variant="primary" type="submit">
           Login
         </Button>

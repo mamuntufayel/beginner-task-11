@@ -18,7 +18,6 @@ const OurExclusive = () => {
                   <Card.Text>Price:{product.price}</Card.Text>
                   <Card.Text>Description:{product.description}</Card.Text>
                   <Card.Text>Supplier: {product.supplier}</Card.Text>
-                  <Button variant="primary">Update</Button>
                 </Card.Body>
               </Card>
             </div>
