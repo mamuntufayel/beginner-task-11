@@ -1,9 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+  const { id } = useParams();
   return (
     <div>
-      <h3>This is a private route</h3>
+      <h2>Product ID:{id}</h2>
     </div>
   );
 };
