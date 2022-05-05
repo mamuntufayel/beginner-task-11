@@ -46,7 +46,7 @@ const Login = () => {
               {" "}
               <img src={google} alt="" />{" "}
             </span>{" "}
-            Sign Up With Google
+            Sign In With Google
           </button>
         </div>
       </Form>

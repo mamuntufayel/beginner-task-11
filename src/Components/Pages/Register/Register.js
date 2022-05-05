@@ -1,20 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import google from "../../../images/social/google.png";
-
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../Firebase.init";
 const Register = () => {
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [error, setError] = useState("");
+
+  const handleToSubmit = (event) => {
+    event.preventDefault();
+    const name = event.target.email.value;
+    const password = event.target.password.value;
+    const ConfirmPassword = event.target.confirmPassword.value;
+    if (password !== ConfirmPassword) {
+      setError("Password didn't match!!!");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Your Password is too small!!!");
+      return;
+    }
+    console.log(name, password, ConfirmPassword);
+    createUserWithEmailAndPassword(name, password);
+    event.target.reset("");
+  };
+
   return (
     <div>
       <h2 className="text-success text-center">Register</h2>
-      <Form className="w-50 mx-auto">
+      <Form onSubmit={handleToSubmit} className="w-50 mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             name="email"
             placeholder="Enter email"
-            autoComplete="off"
             required
           />
         </Form.Group>
@@ -37,7 +59,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-
+        <div className="text-danger">{error}</div>
         <Button variant="primary" type="submit">
           Register
         </Button>
@@ -51,12 +73,12 @@ const Register = () => {
           </span>
         </p>
         <div>
-          <button className="btn btn-primary d-block mx-auto w-50">
+          <button className="btn btn-info d-block mx-auto w-50">
             <span>
               {" "}
               <img src={google} alt="" />{" "}
             </span>{" "}
-            Sign Up With Google
+            Sign In With Google
           </button>
         </div>
       </Form>
