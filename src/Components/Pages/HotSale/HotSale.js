@@ -5,7 +5,7 @@ import Useproducts from "../../../Hook/Useproducts";
 const HotSale = () => {
   const [products] = Useproducts([]);
   return (
-    <div className="container">
+    <div className="container mb-5">
       <h2 className="text-success text-center my-5">Hot Sale</h2>
       <div className="row g-4">
         {products.slice(3, 6).map((product) => (
