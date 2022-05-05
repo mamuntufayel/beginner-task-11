@@ -1,13 +1,14 @@
+import React from "react";
 import { Button, Card } from "react-bootstrap";
 import Useproducts from "../../../Hook/Useproducts";
 
-const Products = () => {
+const HotSale = () => {
   const [products] = Useproducts([]);
   return (
     <div className="container">
-      <h2 className="text-success text-center my-5">Our Goods</h2>
+      <h2 className="text-success text-center my-5">Hot Sale</h2>
       <div className="row g-4">
-        {products.slice(0, 6).map((product) => (
+        {products.slice(3, 6).map((product) => (
           <div key={product.id} className="col-lg-4">
             <div>
               <Card style={{ width: "18rem" }}>
@@ -28,4 +29,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default HotSale;

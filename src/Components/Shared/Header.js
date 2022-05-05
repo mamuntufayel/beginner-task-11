@@ -20,8 +20,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link as={Link} to="inventory">
+                Inventory
+              </Nav.Link>
+              <Nav.Link href="home#exclusive">Exclusive</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -39,7 +41,13 @@ const Header = () => {
             <Nav>
               <Nav.Link href="#deets">More deets</Nav.Link>
               {user ? (
-                <Nav.Link onClick={handleToSignOut}>Sign Out</Nav.Link>
+                <div className="d-flex align-items-center">
+                  <h5>
+                    {" "}
+                    <Nav.Link onClick={handleToSignOut}>Sign Out</Nav.Link>
+                  </h5>
+                  <h5 className="text-light">{user.email.slice(0, 5)}</h5>
+                </div>
               ) : (
                 <Nav.Link as={Link} to="login">
                   Login
