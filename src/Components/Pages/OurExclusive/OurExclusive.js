@@ -9,7 +9,7 @@ const OurExclusive = () => {
       <h2 className="text-success text-center my-5">Exclusive</h2>
       <div className="row g-4">
         {products.slice(0, 3).map((product) => (
-          <div key={product.id} className="col-lg-4">
+          <div key={product._id} className="col-lg-4">
             <div>
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={product.img} />

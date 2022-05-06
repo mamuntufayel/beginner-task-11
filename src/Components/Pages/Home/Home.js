@@ -8,7 +8,7 @@ import OurExclusive from "../OurExclusive/OurExclusive";
 import Products from "../Products/Products";
 
 const Home = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [loading] = useAuthState(auth);
   if (loading) {
     return <Loading></Loading>;
   }
