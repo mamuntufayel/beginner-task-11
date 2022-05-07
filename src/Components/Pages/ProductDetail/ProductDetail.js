@@ -35,7 +35,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <Card
         className="mx-auto border border-success border border-2"
         style={{ width: "38rem" }}
