@@ -39,7 +39,7 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link href="#blogs">Blogs</Nav.Link>
               {user ? (
                 <div className="d-flex align-items-center">
                   <h5>

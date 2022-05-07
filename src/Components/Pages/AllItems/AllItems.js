@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 const AllItems = () => {
   const [products] = Useproducts([]);
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
+  const [loading] = useAuthState(auth);
 
   if (loading) {
     return <Loading></Loading>;

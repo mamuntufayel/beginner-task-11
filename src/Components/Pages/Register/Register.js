@@ -35,7 +35,7 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <h2 className="text-success text-center">Register</h2>
       <Form onSubmit={handleToSubmit} className="w-50 mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
