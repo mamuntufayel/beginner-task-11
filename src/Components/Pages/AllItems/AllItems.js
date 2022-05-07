@@ -8,11 +8,11 @@ import Loading from "../Loading/Loading";
 const AllItems = () => {
   const [products] = Useproducts([]);
   const navigate = useNavigate();
-  const [loading] = useAuthState(auth);
+  // const [loading] = useAuthState(auth);
 
-  if (loading) {
-    return <Loading></Loading>;
-  }
+  // if (loading) {
+  //   return <Loading></Loading>;
+  // }
   return (
     <div className="container">
       <h2 className="text-success text-center my-5">Inventory</h2>

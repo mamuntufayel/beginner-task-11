@@ -16,10 +16,7 @@ const ProductDetail = () => {
 
   const handleUpdate = () => {
     if (update > 0) {
-      // setUpdate(update - 1);
       const updating = parseInt(update - 1);
-
-      console.log(typeof updating);
       setUpdate(updating);
     }
   };
@@ -28,7 +25,7 @@ const ProductDetail = () => {
     const amount = parseInt(event.target.value);
     console.log(amount);
     setRestock(amount);
-    // setUpdate(update + addValue);
+    event.target.value = "";
   };
 
   const handleToRestock = () => {
@@ -49,7 +46,7 @@ const ProductDetail = () => {
           <Card.Text>Price:{productId.price}</Card.Text>
           <Card.Text>Description:{productId.description}</Card.Text>
           <Card.Text>Supplier: {productId.supplier}</Card.Text>
-          <Card.Text>Quantity: {update}</Card.Text>
+          <Card.Text>Quantity(pcs): {update}</Card.Text>
           <Button className="mb-3" onClick={handleUpdate} variant="info">
             Delivered
           </Button>
