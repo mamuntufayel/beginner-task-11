@@ -1,18 +1,33 @@
 import { Button, Card } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
+
 import { useNavigate } from "react-router-dom";
-import auth from "../../../Firebase.init";
+
 import Useproducts from "../../../Hook/Useproducts";
-import Loading from "../Loading/Loading";
 
 const AllItems = () => {
-  const [products] = Useproducts([]);
+  const [products, setProducts] = Useproducts([]);
   const navigate = useNavigate();
-  // const [loading] = useAuthState(auth);
 
-  // if (loading) {
-  //   return <Loading></Loading>;
-  // }
+  const handleToDelete = (id) => {
+    const deleteConfirmation = window.confirm(
+      "Are you sure want to delete it?"
+    );
+    if (deleteConfirmation) {
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            console.log(data);
+            const restProducts = products.map((product) => product._id !== id);
+            setProducts(restProducts);
+          }
+        });
+    }
+  };
+
   return (
     <div className="container">
       <h2 className="text-success text-center my-5">Inventory</h2>
@@ -28,12 +43,20 @@ const AllItems = () => {
                   <Card.Text>Description:{product.description}</Card.Text>
                   <Card.Text>Supplier: {product.supplier}</Card.Text>
                   <Card.Text>Quantity: {product.quantity}</Card.Text>
-                  <Button
-                    onClick={() => navigate(`/inventory/${product._id}`)}
-                    variant="primary"
-                  >
-                    Update
-                  </Button>
+                  <div className="d-flex justify-content-between">
+                    <Button
+                      onClick={() => navigate(`/inventory/${product._id}`)}
+                      variant="info"
+                    >
+                      Manage
+                    </Button>
+                    <Button
+                      onClick={() => handleToDelete(product._id)}
+                      variant="warning"
+                    >
+                      Delete
+                    </Button>
+                  </div>
                 </Card.Body>
               </Card>
             </div>
