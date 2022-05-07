@@ -1,7 +1,5 @@
 import { Button, Card } from "react-bootstrap";
-
 import { useNavigate } from "react-router-dom";
-
 import Useproducts from "../../../Hook/Useproducts";
 
 const AllItems = () => {

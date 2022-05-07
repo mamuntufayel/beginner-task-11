@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddProduct from "./Components/Pages/AddProduct/AddProduct";
 import AllItems from "./Components/Pages/AllItems/AllItems";
+import Blogs from "./Components/Pages/Blogs/Blogs";
 import Home from "./Components/Pages/Home/Home";
 import Login from "./Components/Pages/Login/Login";
 import ManageItems from "./Components/Pages/ManageItems/ManageItems";
@@ -22,7 +23,14 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/allItems" element={<AllItems></AllItems>}></Route>
+        <Route
+          path="/allItems"
+          element={
+            <RequireAuth>
+              <AllItems></AllItems>
+            </RequireAuth>
+          }
+        ></Route>
 
         <Route
           path="/Exclusive"
@@ -41,6 +49,7 @@ function App() {
           path="/manageProduct/:id"
           element={<ManageItems></ManageItems>}
         ></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
