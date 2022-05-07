@@ -31,7 +31,7 @@ const AllItems = () => {
   return (
     <div className="container">
       <h2 className="text-success text-center my-5">Inventory</h2>
-      <div className="row g-4">
+      <div className="row g-4 mx-auto">
         {products.map((product) => (
           <div key={product._id} className="col-lg-4 col-12">
             <div>

@@ -7,7 +7,7 @@ const HotSale = () => {
   return (
     <div className="container mb-5">
       <h2 className="text-success text-center my-5">Hot Sale</h2>
-      <div className="row g-4">
+      <div className="row g-4 mx-auto">
         {products.slice(3, 6).map((product) => (
           <div key={product._id} className="col-lg-4">
             <div>

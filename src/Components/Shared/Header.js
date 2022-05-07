@@ -38,8 +38,8 @@ const Header = () => {
                     <NavDropdown.Item as={Link} to="addProduct">
                       Add New Product
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
+                    <NavDropdown.Item as={Link} to="allItems">
+                      Manage Item
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">
                       Something

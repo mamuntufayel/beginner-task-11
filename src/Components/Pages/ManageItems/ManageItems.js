@@ -1,6 +1,8 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const AddProduct = () => {
+const ManageItems = () => {
+  const { id } = useParams();
   const handleToSubmit = (event) => {
     event.preventDefault();
 
@@ -11,9 +13,9 @@ const AddProduct = () => {
     const quantity = event.target.quantity.value;
     const supplier = event.target.supplier.value;
     // console.log(name, price, description, img, quantity, supplier);
-    const url = `http://localhost:5000/product`;
+    const url = `http://localhost:5000/product/${id}`;
     fetch(url, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -34,8 +36,8 @@ const AddProduct = () => {
   };
   return (
     <div>
-      <h2 className="text-light text-center bg-primary w-25 mx-auto my-3 ">
-        Add New Product
+      <h2 className="text-light text-center bg-primary w-50 mx-auto my-3 p-2">
+        Manage Current Product
       </h2>
       <form onSubmit={handleToSubmit}>
         <input
@@ -90,4 +92,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default ManageItems;

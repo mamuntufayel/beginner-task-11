@@ -4,6 +4,7 @@ import AddProduct from "./Components/Pages/AddProduct/AddProduct";
 import AllItems from "./Components/Pages/AllItems/AllItems";
 import Home from "./Components/Pages/Home/Home";
 import Login from "./Components/Pages/Login/Login";
+import ManageItems from "./Components/Pages/ManageItems/ManageItems";
 import NotFound from "./Components/Pages/NotFound/NotFound";
 import OurExclusive from "./Components/Pages/OurExclusive/OurExclusive";
 import ProductDetail from "./Components/Pages/ProductDetail/ProductDetail";
@@ -36,6 +37,10 @@ function App() {
           }
         ></Route>
         <Route path="/addProduct" element={<AddProduct></AddProduct>}></Route>
+        <Route
+          path="/manageProduct/:id"
+          element={<ManageItems></ManageItems>}
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

@@ -67,7 +67,11 @@ const Register = () => {
           />
         </Form.Group>
         <div className="text-danger">{error}</div>
-        <Button variant="primary" type="submit">
+        <Button
+          className="text-white d-block mx-auto w-50"
+          variant="info"
+          type="submit"
+        >
           Register
         </Button>
         <p>
@@ -82,7 +86,7 @@ const Register = () => {
         <div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-info d-block mx-auto w-50"
+            className="btn btn-info d-block mx-auto w-50 text-white"
           >
             <span>
               {" "}

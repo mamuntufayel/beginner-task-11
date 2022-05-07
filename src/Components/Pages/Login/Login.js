@@ -55,7 +55,11 @@ const Login = () => {
           />
         </Form.Group>
         <h5>{error}</h5>
-        <Button variant="primary" type="submit">
+        <Button
+          className="d-block mx-auto w-50"
+          variant="primary"
+          type="submit"
+        >
           Login
         </Button>
         <p>

@@ -6,7 +6,7 @@ const Products = () => {
   return (
     <div className="container">
       <h2 className="text-success text-center my-5">Our Goods</h2>
-      <div className="row g-4">
+      <div className="row g-4 mx-auto">
         {products.slice(0, 6).map((product) => (
           <div key={product._id} className="col-lg-4">
             <div>
