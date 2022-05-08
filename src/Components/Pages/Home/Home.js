@@ -20,6 +20,7 @@ const Home = () => {
       <HotSale></HotSale>
       <div className="text-center">
         <Link
+          title="click to manage inventory"
           className="text-decoration-none fw-bolder fs-3 text-success"
           to="/allItems"
         >

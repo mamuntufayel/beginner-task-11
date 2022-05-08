@@ -1,5 +1,5 @@
 import { Button, Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Useproducts from "../../../Hook/Useproducts";
 
 const AllItems = () => {
@@ -60,6 +60,15 @@ const AllItems = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="text-center">
+        <Link
+          title="click to add a new product"
+          className="text-decoration-none fw-bolder fs-3 text-success"
+          to="/addProduct"
+        >
+          Add A New Product
+        </Link>
       </div>
     </div>
   );

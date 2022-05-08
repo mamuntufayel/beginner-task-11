@@ -41,20 +41,10 @@ const Header = () => {
                     <NavDropdown.Item as={Link} to="allItems">
                       Manage Item
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
                   </NavDropdown>
                 </>
               )}
 
-              {/* <Nav.Link as={Link} to="addProduct">
-                Add Product
-              </Nav.Link> */}
               {user ? (
                 <div className="d-flex align-items-center">
                   <h5>

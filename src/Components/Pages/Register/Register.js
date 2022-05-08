@@ -5,9 +5,10 @@ import google from "../../../images/social/google.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import Loading from "../Loading/Loading";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user] =
+  const [createUserWithEmailAndPassword, user, loading] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [error, setError] = useState("");
   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
@@ -30,6 +31,9 @@ const Register = () => {
     createUserWithEmailAndPassword(email, password);
     event.target.reset("");
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   if (user || googleUser) {
     navigate("/home");
   }

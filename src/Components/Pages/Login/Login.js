@@ -29,7 +29,7 @@ const Login = () => {
   const handleToGetPasswordOnBlur = (event) => {
     setPassword(event.target.value);
   };
-
+  // Handling the form submit
   const handleToSubmit = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(email, password);
