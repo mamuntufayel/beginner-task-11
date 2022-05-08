@@ -22,13 +22,3 @@
   transform-origin: left;
   transform: scaleX(1);
 }
-
-/* Presentational Styles */
-body {
-  display: grid;
-  font-family: "Poppins", sans-serif;
-  font-size: 27px;
-  font-weight: 700;
-  height: 100vh;
-  place-items: center;
-}
