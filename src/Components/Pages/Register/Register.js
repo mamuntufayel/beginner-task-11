@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../../../images/social/google.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import auth from "../../../Firebase.init";
+import auth from "../../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Register = () => {
@@ -74,7 +74,7 @@ const Register = () => {
         >
           Register
         </Button>
-        <p>
+        <p className="my-2">
           Already registered?{" "}
           <span>
             {" "}

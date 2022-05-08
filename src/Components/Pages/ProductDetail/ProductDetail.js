@@ -23,7 +23,6 @@ const ProductDetail = () => {
 
   const handleToRestockOnBlur = (event) => {
     const amount = parseInt(event.target.value);
-    console.log(amount);
     setRestock(amount);
     event.target.value = "";
   };

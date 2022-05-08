@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import google from "../../../images/social/google.png";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import auth from "../../../Firebase.init";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import Loading from "../Loading/Loading";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -13,14 +18,34 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  //  Getting email and password value using onBlur
+  const handleToGetEmailOnBlur = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleToGetPasswordOnBlur = (event) => {
+    setPassword(event.target.value);
+  };
+
   const handleToSubmit = (event) => {
     event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
     signInWithEmailAndPassword(email, password);
     event.target.reset("");
   };
+
+  // reset Password
+  const handleResetPassword = async () => {
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Reset password link sent to your email");
+    } else {
+      toast("please enter your existing email");
+    }
+  };
+
   if (loading) {
     return <Loading></Loading>;
   }
@@ -38,6 +63,7 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
+            onBlur={handleToGetEmailOnBlur}
             type="email"
             name="email"
             placeholder="Enter email"
@@ -48,6 +74,7 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            onBlur={handleToGetPasswordOnBlur}
             type="password"
             name="password"
             placeholder="Password"
@@ -62,7 +89,7 @@ const Login = () => {
         >
           Login
         </Button>
-        <p>
+        <p className="mt-2">
           Don't have an account?{" "}
           <span>
             {" "}
@@ -71,19 +98,29 @@ const Login = () => {
             </Link>{" "}
           </span>
         </p>
-        <div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="btn btn-primary d-block mx-auto w-50"
-          >
-            <span>
-              {" "}
-              <img src={google} alt="" />{" "}
-            </span>{" "}
-            Sign In With Google
-          </button>
-        </div>
       </Form>
+      <p className="d-block mx-auto w-50 border-none">
+        Forget Password?{" "}
+        <button
+          onClick={handleResetPassword}
+          className="btn btn link text-primary text-decoration-none shadow-none"
+        >
+          Click To Reset
+        </button>
+      </p>
+      <div>
+        <button
+          onClick={() => signInWithGoogle()}
+          className="btn btn-primary d-block mx-auto w-25"
+        >
+          <span>
+            {" "}
+            <img src={google} alt="" />{" "}
+          </span>{" "}
+          Sign In With Google
+        </button>
+      </div>
+      <ToastContainer />
     </div>
   );
 };
