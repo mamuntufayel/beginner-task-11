@@ -27,11 +27,16 @@ const AllItems = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-success text-center my-5">Inventory</h2>
+    <div>
+      <h2 className="w-25 text-center mx-auto d-block mt-3 mb-3 text-deco">
+        Inventory
+      </h2>
       <div className="row g-4 mx-auto">
         {products.map((product) => (
-          <div key={product._id} className="col-lg-4 col-12">
+          <div
+            key={product._id}
+            className="col-lg-4 col-12 shadow-lg p-3 mb-5 bg-white rounded"
+          >
             <div>
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={product.img} />

@@ -34,9 +34,9 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="my-4">
+    <div className="my-4 row">
       <Card
-        className="mx-auto border border-success border border-2"
+        className="col-12 col-lg-12 mx-auto border border-success border border-2"
         style={{ width: "38rem" }}
       >
         <Card.Img variant="top" src={productId.img} />
@@ -52,7 +52,7 @@ const ProductDetail = () => {
           <br />
           <input
             onBlur={handleToRestockOnBlur}
-            type="text"
+            type="number"
             name="restockNumbers"
             id=""
           />

@@ -1,15 +1,19 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Useproducts from "../../../Hook/Useproducts";
+import "./HotSale.css";
 
 const HotSale = () => {
   const [products] = Useproducts([]);
   return (
-    <div className="container mb-5">
-      <h2 className="text-success text-center my-5">Hot Sale</h2>
+    <div className=" mb-5">
+      <h2 className="text-success text-center my-5 title">Hot Sale</h2>
       <div className="row g-4 mx-auto">
         {products.slice(3, 6).map((product) => (
-          <div key={product._id} className="col-lg-4">
+          <div
+            key={product._id}
+            className="card col-lg-4 shadow-lg p-3 mb-5 bg-white rounded"
+          >
             <div>
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={product.img} />

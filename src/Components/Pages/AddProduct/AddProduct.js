@@ -34,7 +34,7 @@ const AddProduct = () => {
   };
   return (
     <div>
-      <h2 className="text-light text-center bg-primary w-25 mx-auto my-3 ">
+      <h2 className="text-success text-center  w-25 mx-auto my-3 ">
         Add New Product
       </h2>
       <form onSubmit={handleToSubmit}>
@@ -44,6 +44,7 @@ const AddProduct = () => {
           name="name"
           id=""
           placeholder="Product Name"
+          required
         />
         <input
           className="d-block p-2 my-2 w-50 mx-auto"
@@ -51,6 +52,7 @@ const AddProduct = () => {
           name="price"
           id=""
           placeholder="price"
+          required
         />
         <input
           className="d-block p-2 my-2 w-50 mx-auto"
@@ -58,6 +60,7 @@ const AddProduct = () => {
           name="description"
           id=""
           placeholder="Product Description"
+          required
         />
         <input
           className="d-block p-2 my-2 w-50 mx-auto"
@@ -65,6 +68,7 @@ const AddProduct = () => {
           name="img"
           id=""
           placeholder="Enter img URL"
+          required
         />
         <input
           className="d-block p-2 my-2 w-50 mx-auto"
@@ -72,6 +76,7 @@ const AddProduct = () => {
           name="quantity"
           id=""
           placeholder="Product quantity"
+          required
         />
         <input
           className="d-block p-2 my-2 w-50 mx-auto"
@@ -79,6 +84,7 @@ const AddProduct = () => {
           name="supplier"
           id=""
           placeholder="Product supplier"
+          required
         />
         <input
           className="w-25 d-block mx-auto bg-success text-white "

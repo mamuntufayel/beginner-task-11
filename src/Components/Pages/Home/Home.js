@@ -1,6 +1,8 @@
 import React from "react";
+import "./Home.css";
 
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 import Banner from "../../Banner/Banner";
 import HotSale from "../HotSale/HotSale";
@@ -11,7 +13,7 @@ import Products from "../Products/Products";
 const Home = () => {
   return (
     <div>
-      <h3 className="text-success text-center mt-5">
+      <h3 className="w-50 text-center mx-auto d-block mt-3 mb-2 text-deco">
         Welcome to Hi-Fi Electronics
       </h3>
       <Banner></Banner>
@@ -21,7 +23,7 @@ const Home = () => {
       <div className="text-center">
         <Link
           title="click to manage inventory"
-          className="text-decoration-none fw-bolder fs-3 text-success"
+          className="manage-text text-decoration-none fw-bolder fs-3 "
           to="/allItems"
         >
           Manage Inventories
