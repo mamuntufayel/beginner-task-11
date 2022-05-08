@@ -11,7 +11,7 @@ const AllItems = () => {
       "Are you sure want to delete it?"
     );
     if (deleteConfirmation) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://serene-badlands-74233.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -11,7 +11,7 @@ const AddProduct = () => {
     const quantity = event.target.quantity.value;
     const supplier = event.target.supplier.value;
     // console.log(name, price, description, img, quantity, supplier);
-    const url = `http://localhost:5000/product`;
+    const url = `https://serene-badlands-74233.herokuapp.com/product`;
     fetch(url, {
       method: "POST",
       headers: {

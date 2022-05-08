@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [restock, setRestock] = useState(0);
   const [update, setUpdate] = useState(20);
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://serene-badlands-74233.herokuapp.com/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProductId(data));
