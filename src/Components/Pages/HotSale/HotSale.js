@@ -7,7 +7,9 @@ const HotSale = () => {
   const [products] = Useproducts([]);
   return (
     <div className=" mb-5">
-      <h2 className="text-success text-center my-5 title">Hot Sale</h2>
+      <h2 className="custom-text text-success w-25 text-center mx-auto my-5">
+        Hot Sale
+      </h2>
       <div className="row g-4 mx-auto">
         {products.slice(3, 6).map((product) => (
           <div
