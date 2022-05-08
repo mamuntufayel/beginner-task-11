@@ -23,7 +23,7 @@ const Home = () => {
       <div className="text-center">
         <Link
           title="click to manage inventory"
-          className="w-25 fs-3 fw-bolder text-center mx-auto d-block mt-3 mb-2 text-deco"
+          className="text-decoration-none w-25 fs-3 fw-bolder text-center mx-auto d-block mt-3 mb-2 text-deco"
           to="/allItems"
         >
           Manage Inventories
